@@ -6,13 +6,71 @@ C.	Para hacer un contrapiso de 1m x 1m se necesitan 2 bolsas de cemento y 3 de c
 
 function Rectangulo () 
 {
+    let largo = parseFloat(document.getElementById("txtIdLargo").value);
+    
+    let ancho = parseFloat(document.getElementById("txtIdAncho").value);
 
+    let circulo = 2 * (largo + ancho) * 3
+
+    alert("El alambre necesario para cubrir el terreno con tres hilos es : " + circulo + " metros");
+
+    document.getElementById("txtIdLargo").value="";
+
+    document.getElementById("txtIdAncho").value="";
+
+    document.getElementById("txtIdRadio").value="";
 }
+
+
 function Circulo () 
 {
-	
+	let radio = parseFloat(document.getElementById("txtIdRadio").value);
+
+    let circulo = 2 * (3.1416 * radio) * 3
+
+    alert("El alambre necesario para cubrir el terreno con tres hilos es : " + circulo + " metros");
+
+    document.getElementById("txtIdLargo").value="";
+
+    document.getElementById("txtIdAncho").value="";
+
+    document.getElementById("txtIdRadio").value="";
 }
+
+
 function Materiales () 
 {
-	
+	let largo = parseFloat(document.getElementById("txtIdLargo").value);
+    
+    let ancho = parseFloat(document.getElementById("txtIdAncho").value);
+
+    let radio = parseFloat(document.getElementById("txtIdRadio").value);
+
+    let areaReactanguro = largo * ancho;
+
+    let areaCirculo = (radio * radio) * 3.1416;
+
+    let cemento = 2;
+
+    let cal = 3;
+
+    let cementoRectangulo = cemento * areaReactanguro
+
+    let calRectangulo = cal * areaReactanguro
+
+    let cementoCirculo =  cemento * areaCirculo;
+    
+    let calCirculo = cal * areaCirculo;
+
+
+    alert("Para las medidas del terreno rectangular se necesitan " + cementoRectangulo + " bolsas de cemento y " + calRectangulo + " bolsas de cal.")
+
+    alert("Para las medidas del terreno circular se necesitan " + cementoCirculo + " bolsas de cemento y " + calCirculo + " bolsas de cal.")
+
+    document.getElementById("txtIdLargo").value="";
+
+    document.getElementById("txtIdAncho").value="";
+
+    document.getElementById("txtIdRadio").value="";
+
 }
