@@ -6,8 +6,8 @@ function mostrar()
 	
 	switch (estacion){
 		case "Invierno":
-
-			switch (destino){
+								// Rehacer ejercicio optimizandolo con if 
+			switch (destino){	// Esto tendria que ser con if y else para el resto, pero estabamos practicando switch
 				case "Bariloche":
 					alert("Se puede viajar a " + destino + " en " + estacion);
 					break;
