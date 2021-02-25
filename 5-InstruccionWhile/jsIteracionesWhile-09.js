@@ -3,22 +3,34 @@ Al presionar el botón pedir  números  hasta que el usuario quiera,
 mostrar el número máximo y el número mínimo ingresado.*/
 function mostrar()
 {	
-	let numero = 0;
-	let numMax = 0;
-	let numMin = 0;
-	let respuesta = "s";
+	let numero;
+	let numMax;
+	let numMin;
+	let respuesta;
+	let flag = 0;
 
-	while(respuesta == "s"){
+	do{
 		numero = parseInt(prompt("Ingrese un número."));
-		if (numero > numMax){
+		while(isNaN(numero)){
+			numero = parseInt(prompt("Número invalido. Ingrese un número."));
+		}
+		if (flag == 0){
 			numMax = numero;
 			numMin = numero;
+			flag = 1;
 		}
 		else{
-			numMin = numero;
+			if(numero > numMax){
+				numMax = numero;
+			}
+			else if(numero < numMin){
+				numMin = numero;
+			}
+			
 		}
 		respuesta = prompt("Desea ingresar otro número? s / n");
-	}
+	}while(respuesta == "s");
+
 	document.getElementById("txtIdMaximo").value=numMax;
 	document.getElementById("txtIdMinimo").value=numMin;
 	
