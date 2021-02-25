@@ -1,84 +1,59 @@
 function mostrar()
 {
-    let notasF;
+    let nota;
     let minF = 10;
     let totalF = 0;
     let notasM;
-    let minM = 10;
+    let minM =10;
     let totalM = 0;
     let sexo;
-    let aprobadosM;
+    let aprobadosM = 0;
     let notasTotales;
     let promedio;
-    let i = 0;
     flag = 0;
 
-    while (i < 5){
+    for (let i = 0; i < 5; i ++){
         sexo = prompt("Ingrese su genero: f/m.");
-        if (sexo == 'f'){
-            notasF = parseInt(prompt("Ingrese su nota de 0 a 10"));
-            while (isNaN(notasF) || notasF > 10){
-                notasF = parseInt(prompt("Nota invalida. Ingrese su nota."));
-            }
+        while (sexo != 'f' && sexo != 'm'){
+            sexo = prompt("Genero incorrecto. Ingrese su genero.")
+        }
 
-            minF = notasF;
-            totalF += notasF;
+        notas = parseInt(prompt("Ingrese su nota de 0 a 10"));
+        while (isNaN(nota) || nota > 10 || nota < 0){
+            notasF = parseInt(prompt("Nota invalida. Ingrese su nota."));
+        }
 
-            if (notasF < minF ){
-                minF = notasF;
-            }
+        totalNotas += nota;
+
+        switch (sexo){
             
-        }
-        else if (sexo == 'm'){
-            notasF = parseInt(prompt("Ingrese su nota de 0 a 10"));
-            while (isNaN(notasM) || notasM > 10){
-                notasM = parseInt(prompt("Nota invalida. Ingrese su nota."));
-            }
+            case 'm':
+                    if (notasM >= 6){
+                        aprobadosM ++;
+                    }
 
-            minM = notasM;
-            totalM += notasM;
+                break;
+        }
 
-            if (notasM < minM ){
-                minM = notasM;
-            }
-        }
-        i ++;
-        
+    }
+    if (flag == 0){
+        notaMin = nota;
+        sexoMin =sexo;
+        flag = 1;
+    }
+    if (nota < notaMin){
+        notaMin = nota;
+        sexoMin = sexo;
     }
 
-/*    for (let i = 0; i < 5; i ++){
-        
-        if (sexo == 'f'){
-            notasF = parseint(prompt("ingrese su nota: 1 a 10."));
-            while (isNaN (notasF)){
-                notasF = parseint(prompt("Nota invalida. Ingrese su nota."));
-            }
-            if (notaMinF > notasF){
-                notaMinF = notasF;
-            }
-            totalF +=notasF;
-        }
-        else if (sexo == 'm'){
-            notasM = parseint(prompt("ingrese su nota."));
-            while (isNaN (notasM)){
-                notasM = parseint(prompt("Nota invalida. Ingrese su nota."));
-            }
-            if (notaMinM > notasM){
-                notaMinM = notasM
-            }
-            else if (notasM >=6){
-               aprobadosM ++;    // C
-            }
-            totalM += notasM;
-        }
+    promedio = totalNotas / 5;                                  //A
+    alert("El promedio de las notas totale es: " + promedio);   //A
+
+    alert("La nota mas baja es: " + minF + " y es del sexo " + sexoMin);     //B
+    }                                                                           //B
+    else{                                                                       //B
+        alert("La nota mas baja es: " + minM + " y es del sexo masculino.");    //B
     }
-    notasTotales = totalM + totalF;
-    promedio = notasTotales / 5;    // A
-    if (notaMinF < notaMinM){
-        alert("A- El promedio de las notas totales es: " + promedio + " . B- la nota mas baja es : " + notaMinF + " y es de sexo Femenino. C- La cantidad de varones con una nota mayor o igual a 6 es: " + aprobadosM);
-    }
-    else{
-        alert("A- El promedio de las notas totales es: " + promedio + " . B- la nota mas baja es : " + notaMinM + " y es de sexo masculino. C- La cantidad de varones con una nota mayor o igual a 6 es: " + aprobadosM);
-    }
-    */
+    alert("La cantidad de varones que su nota ha sido mayor o igual a 6 es: " + aprobadosM);    //C
+
 }
