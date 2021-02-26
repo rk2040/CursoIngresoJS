@@ -1,7 +1,19 @@
 function mostrar()
 {
-	alert("ok");
+	let numero = parseInt(prompt("Ingrese un número positivo"));
+	let contador = 0;
+	
+	while (isNaN(numero) || numero <= 0){
+		numero = parseInt(prompt("Número invalido. Ingrese un número positivo"));
+	}
 
+	for (let i = 1; i <= numero; i ++){
+		if ( i % 2 == 0){
+			console.log(i)
+			contador ++;
+		}
+	}
+	console.log("Cantidad de números pares encontrados " + contador);
 
 
 }//FIN DE LA FUNCIÓN
