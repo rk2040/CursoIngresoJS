@@ -67,7 +67,7 @@ function mostrar()
     );
 */
 //1
-alert("1- La suma de los números negativos es: " + numNeg
+    alert("1- La suma de los números negativos es: " + numNeg); 
 //2
     alert("\n -La suma de los números positivos es: " + numPos);
 //3
