@@ -14,13 +14,13 @@ function mostrar()
 	let homViudos = 0;
 	let mayoresMaxTemp = 0;
 	let edadTotal = 0;
-	let promedioEdad;
+	let promedioEdad =0;	//despues hacer que el numero que divide sea != 0 (en un if)
 
 
 	do{
 		nombre = prompt("Ingrese su nombre");
 		edad = parseInt(prompt("Ingrese su edad"));
-		while (isNaN(edad)){
+		while (isNaN(edad) || edad <= 0){
 			edad = parseInt(prompt("Edad invalida. Ingrese su edad"));
 		}
 		sexo = prompt("Ingrese su genero: f/m").toLowerCase();
@@ -48,6 +48,17 @@ function mostrar()
 		}
 
 		//C Calcula cantidad de hombres solteors o viudos
+		/*otra forma de hacerlo
+		if (sexo == 'm' && (estadiCivil == "soltero" || estadoCivil == "viudo")){
+			contadorHombreSolteroViudo ++;
+		}
+		y el punto D separado con otro if 
+		if (estadoCivil == "soltero"){
+			homSoltero ++;
+			edadTotal += edad;
+		}
+
+		*/
 		if (sexo == 'm'){
 			switch (estadoCivil){
 				case "soltero":
@@ -72,8 +83,9 @@ function mostrar()
 	}while (respuesta == 's');
 
 	//D Calcula el promedio de edad de los hombres solteros
-	promedioEdad = edadTotal / homSolteros;
-
+	if (homSoltero != 0){
+		promedioEdad = edadTotal / homSolteros;
+	}
 
 	console.log("La persona con mas temperatura es " + nombreTempMax + " con " + tempMax + "°");
 	console.log("La cantidad de personas mayores de edad viudos es de " + mayoresViudos);
